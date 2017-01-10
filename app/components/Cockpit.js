@@ -31,7 +31,7 @@ export default class Home extends Component {
       json => {
         this.setState({ loading: 'Success' });
         json.forEach(project => addProject(project.name));
-        hashHistory.push('/cockpit');
+        hashHistory.push('/counter');
         this.state.loading = '';
         return true;
       }
