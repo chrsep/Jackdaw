@@ -1,9 +1,17 @@
 // @flow
-export const ADD_PROJECT = 'ADD_PROJECT';
+export const REFRESH_PROJECT = 'REFRESH_PROJECT'
+export const CHOOSE_PROJECT = 'CHOOSE_PROJECT'
 
-export function addProject(project: string) {
+export function addProject(projects: Object[]) {
   return {
-    type: ADD_PROJECT,
-    project: project
-  };
+    type: REFRESH_PROJECT,
+    projects
+  }
+}
+
+export function chooseProject(projectIndex: number) {
+  return {
+    type: CHOOSE_PROJECT,
+    projectIndex
+  }
 }

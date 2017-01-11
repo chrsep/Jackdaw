@@ -27,6 +27,7 @@ a:hover {
     -webkit-app-region: drag;
     display: flex;
     justify-content: flex-end;
+    position: absolute;
 }
 
 #frame > .menu{
@@ -39,6 +40,7 @@ a:hover {
     transition: all 0.1s;
     cursor: pointer;
     -webkit-app-region:  no-drag;
+    z-index: 1;
 }
 
 #frame > #minimize:hover{

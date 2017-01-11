@@ -1,54 +1,36 @@
 // @flow
-import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
-import styles from './Home.css';
+import React, { Component } from 'react'
+import styles from './Cockpit.css'
 
 
-export default class Home extends Component {
-  constructor(props: Object) {
-    super(props);
-    this.state = { loading: '' };
-  }
-  state: {
-    loading: string
-  }
-  input: HTMLInputElement;
+export default class Cockpit extends Component {
   props: {
-    changeToken: () => void,
-    addProject: () => void
-  }
-  authorize = () => {
-    const { changeToken, addProject } = this.props;
-    changeToken(this.input.value);
-    this.setState({ loading: 'Loading' });
-    const headers = new Headers({ 'PRIVATE-TOKEN': this.input.value });
-    fetch('https://gitlab.com/api/v3/projects/owned', {
-      method: 'GET',
-      headers
-    }).then(
-      result => result.json()
-    ).then(
-      json => {
-        this.setState({ loading: 'Success' });
-        json.forEach(project => addProject(project.name));
-        hashHistory.push('/counter');
-        this.state.loading = '';
-        return true;
-      }
-    ).catch(() => {
-      this.setState({ loading: 'Failed' });
-    });
-  }
+    gitlab: {projects: {name: string, id: number}[], chosenProject: number},
+    posts: string[]
+  };
   render() {
+    const { gitlab, posts } = this.props
+    const extractName = item => item.substr(11).split('-').join(' ').replace('.markdown', '')
+    const postItem = (item, index) => (
+      <div key={index} className={styles.project}>
+        / {extractName(item)}
+      </div>
+    )
     return (
       <div>
         <div className={styles.container}>
-          <img src="../resources/images/gitlab-logo.png" alt="" className={styles.logo} />
-          <input type="text" className={styles.token} placeholder="Token" ref={node => { this.input = node; }} />
-          <div className={styles.indicator}>{this.state.loading}</div>
-          <button className={styles.button} onClick={this.authorize}>Authorize</button>
+          <div className={styles.navbar} >
+            {gitlab.projects[gitlab.chosenProject].name}
+          </div>
+          <div className={styles.fileindex} >
+            {posts.map((
+              (item: string, index) =>
+                postItem(item, index)
+              ))}
+          </div>
+          <div className={styles.new} />
         </div>
       </div>
-    );
+    )
   }
 }

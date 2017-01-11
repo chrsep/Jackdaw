@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+}
+
+.header{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.projects{
+    background-color: #182329;
+    border-radius: 0.3rem;
+    font-size: 1.5rem;
+    width: 25rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    max-height: 18rem;
+    overflow: auto;
+}
+
+.project{
+    padding: 1rem 2rem;
+    user-select: none;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: white;
+    text-align: left;
+}
+
+.project:hover{
+    background-color: #FF5722;
+}
+
+.indicator{
+    margin: 1.5rem;
+}

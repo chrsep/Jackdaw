@@ -1,9 +1,9 @@
 // @flow
-export const ADD_POST = 'ADD_POST';
+export const ADD_POST = 'ADD_POST'
 
-export function addPost(filename: string) {
+export function addPost(filenames: string[]) {
   return {
     type: ADD_POST,
-    filename
-  };
+    filenames
+  }
 }
