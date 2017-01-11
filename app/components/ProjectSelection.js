@@ -13,7 +13,9 @@ export default class ProjectSelection extends Component {
     loading: string
   }
   props: {
-    gitlab: {projects: {name: string, id: number}[]},
+    gitlab: {
+      projects: {name: string, id: number}[]
+    },
     chooseProject: (number) => void,
     addPost: (string) => void,
     token: string
@@ -29,14 +31,12 @@ export default class ProjectSelection extends Component {
       headers
     }).then(
       result => result.json()
-    ).then(
-      json => {
-        this.setState({ loading: 'Success' })
-        addPost(json.map(item => item.name))
-        hashHistory.push('/cockpit')
-        return true
-      }
-    ).catch(() => {
+    ).then(json => {
+      this.setState({ loading: 'Success' })
+      addPost(json.map(item => item.name))
+      hashHistory.push('/cockpit')
+      return true
+    }).catch(() => {
       this.setState({ loading: 'Failed' })
     })
   }

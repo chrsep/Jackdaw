@@ -13,12 +13,23 @@ a {
     color: white;
     opacity: .75;
     text-decoration: none;
+    -webkit-app-region: no-drag;
 }
 
 a:hover {
     opacity: 1;
     text-decoration: none;
     cursor: pointer;
+}
+
+.CodeMirror {
+    height: 300px;
+    z-index: 2;
+    -webkit-app-region: no-drag;
+}
+
+.editor-toolbar{
+    background-color: #ffffff !important;
 }
 
 #frame{
