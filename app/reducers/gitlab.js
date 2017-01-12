@@ -1,6 +1,4 @@
 // @flow
-
-import _ from 'lodash/core'
 import { REFRESH_PROJECT, CHOOSE_PROJECT } from '../actions/gitlab'
 
 const initialState = { projects: [], chosenProject: 0 }
@@ -12,9 +10,9 @@ export default function gitlab(
   } = initialState, action: Object) {
   switch (action.type) {
     case REFRESH_PROJECT:
-      return _.assignIn(state, { projects: action.projects })
+      return { projects: action.projects, chosenProject: state.chosenProject }
     case CHOOSE_PROJECT:
-      return _.assignIn(state, { chosenProject: action.projectIndex })
+      return { projects: state.projects, chosenProject: action.projectIndex }
     default:
       return state
   }
