@@ -9,9 +9,9 @@ export default class Editor extends Component {
       element: document.getElementById('editor')
     })
   }
-  props:{
+  props: {
     title: string,
-    description: string,
+    description: string
 
   }
   input: HTMLInputElement

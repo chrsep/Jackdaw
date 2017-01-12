@@ -1,0 +1,12 @@
+<svg width="248" height="229" viewBox="0 0 248 229" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>maximize</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(117 -1064)" figma:type="canvas">
+<g id="maximize" style="mix-blend-mode:normal;" figma:type="vector">
+<use xlink:href="#path0_stroke" transform="translate(-108 1073)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<defs>
+<path id="path0_stroke" d="M 0 0L 0 -9L -9 -9L -9 0L 0 0ZM 0 211L -9 211L -9 220L 0 220L 0 211ZM 230 211L 230 220L 239 220L 239 211L 230 211ZM 230 0L 239 0L 239 -9L 230 -9L 230 0ZM -9 0L -9 211L 9 211L 9 0L -9 0ZM 0 220L 230 220L 230 202L 0 202L 0 220ZM 239 211L 239 0L 221 0L 221 211L 239 211ZM 230 -9L 0 -9L 0 9L 230 9L 230 -9Z"/>
+</defs>
+</svg>

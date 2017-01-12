@@ -6,9 +6,9 @@ import Editor from './Editor'
 
 export default class Cockpit extends Component {
   props: {
-    gitlab: {projects: {name: string, id: number}[], chosenProject: number},
+    gitlab: Object,
     posts: string[]
-  };
+  }
   render() {
     const { gitlab, posts } = this.props
     const extractName = item => item.substr(11).split('-').join(' ').replace('.markdown', '')
@@ -21,7 +21,7 @@ export default class Cockpit extends Component {
       <div>
         <div className={styles.container}>
           <div className={styles.navbar} >
-            {/*gitlab.projects[gitlab.chosenProject].name*/}
+            {gitlab.projects[gitlab.chosenProject].name}
           </div>
           <div className={styles.fileindex} >
             {posts.map((
@@ -30,7 +30,7 @@ export default class Cockpit extends Component {
               ))}
           </div>
           <div className={styles.new} />
-          <Editor />
+          <Editor description="" title="" />
         </div>
       </div>
     )

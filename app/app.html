@@ -19,9 +19,15 @@
 </head>
 <body>
 <div id="frame">
-    <div class="menu" id="minimize">--</div>
-    <div class="menu" id="maximize">[ ]</div>
-    <div class="menu" id="close">X</div>
+    <div class="menu" id="minimize">
+        <img src="../resources/icons/minimize.svg" alt="">
+    </div>
+    <div class="menu" id="maximize">
+        <img src="../resources/icons/maximize.svg" alt="">
+    </div>
+    <div class="menu" id="close">
+        <img src="../resources/icons/close.svg" alt="">
+    </div>
 </div>
 <div id="root"></div>
 <script>
@@ -34,6 +40,38 @@
         // HACK: Writing the script path should be done with webpack
         document.body.appendChild(script);
     }
+    // Borrowed from https://github.com/srakowski/ElectronLikeVS/blob/master/app/default.js
+    (function () {
+
+      const remote = require('electron').remote;
+
+      function init() {
+        document.getElementById("minimize").addEventListener("click", function (e) {
+          const window = remote.getCurrentWindow();
+          window.minimize();
+        });
+
+        document.getElementById("maximize").addEventListener("click", function (e) {
+          const window = remote.getCurrentWindow();
+          if (!window.isMaximized()) {
+            window.maximize();
+          } else {
+            window.unmaximize();
+          }
+        });
+
+        document.getElementById("close").addEventListener("click", function (e) {
+          const window = remote.getCurrentWindow();
+          window.close();
+        });
+      }
+
+      document.onreadystatechange = function () {
+        if (document.readyState === "complete") {
+          init();
+        }
+      };
+    })();
 </script>
 </body>
 </html>

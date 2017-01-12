@@ -33,7 +33,6 @@ a:hover {
 }
 
 #frame{
-    height: 2rem;
     width: 100%;
     -webkit-app-region: drag;
     display: flex;
@@ -42,16 +41,21 @@ a:hover {
 }
 
 #frame > .menu{
-    width: 2rem;
-    height: 2rem;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 2rem;
-    font-size: 0.8rem;
-    transition: all 0.1s;
-    cursor: pointer;
     -webkit-app-region:  no-drag;
     z-index: 1;
+    padding: 0.7rem;
+    height: calc(0.8rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#frame > .menu > img{
+    height: 0.6rem;
+}
+
+#frame > .menu > img:hover{
+    fill: red;
 }
 
 #frame > #minimize:hover{
