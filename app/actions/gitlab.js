@@ -2,7 +2,7 @@
 export const REFRESH_PROJECT = 'REFRESH_PROJECT'
 export const CHOOSE_PROJECT = 'CHOOSE_PROJECT'
 
-export function addProject(projects: Object[]) {
+export function refreshProject(projects: Object[]) {
   return {
     type: REFRESH_PROJECT,
     projects

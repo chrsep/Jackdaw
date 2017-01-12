@@ -1,10 +1,14 @@
 // @flow
 import React, { Component } from 'react'
+import { hashHistory } from 'react-router'
 import styles from './Cockpit.css'
 import Editor from './Editor'
 
 
 export default class Cockpit extends Component {
+  onBackClickHandler = () => {
+    hashHistory.push('/select')
+  }
   props: {
     gitlab: Object,
     posts: string[]
@@ -17,11 +21,22 @@ export default class Cockpit extends Component {
         / {extractName(item)}
       </div>
     )
+    const projectName = () => {
+      if (gitlab.projects.length > 0) {
+        return gitlab.projects[gitlab.chosenProject].name
+      }
+      return 'No project selected'
+    }
     return (
       <div>
         <div className={styles.container}>
           <div className={styles.navbar} >
-            {gitlab.projects[gitlab.chosenProject].name}
+            <button onClick={this.onBackClickHandler}>
+              <img src="../resources/icons/back.svg" alt="" />
+            </button>
+            <div className={styles.navbarText}>
+              {projectName()}
+            </div>
           </div>
           <div className={styles.fileindex} >
             {posts.map((
@@ -29,7 +44,7 @@ export default class Cockpit extends Component {
                 postItem(item, index)
               ))}
           </div>
-          <div className={styles.new} />
+          <button className={styles.new} />
           <Editor description="" title="" />
         </div>
       </div>

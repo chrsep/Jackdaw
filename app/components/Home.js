@@ -15,11 +15,11 @@ export default class Home extends Component {
   input: HTMLInputElement;
   props: {
     changeToken: () => void,
-    addProject: () => void
+    refreshProject: () => void
   }
   authorize = () => {
     // Save token
-    const { changeToken, addProject } = this.props
+    const { changeToken, refreshProject } = this.props
     changeToken(this.input.value)
     this.setState({ loading: 'Loading' })
     // Fetch List of projects from gitlab
@@ -32,9 +32,8 @@ export default class Home extends Component {
     ).then(
       json => {
         this.setState({ loading: 'Success' })
-        addProject(json.map(item => { return { name: item.name, id: item.id } }))
+        refreshProject(json.map(item => ({ name: item.name, id: item.id })))
         hashHistory.push('/select')
-        this.state.loading = ''
         return true
       }
     ).catch(() => {
@@ -46,7 +45,7 @@ export default class Home extends Component {
       <div>
         <div className={styles.container}>
           <img src="../resources/images/gitlab-logo.png" alt="" className={styles.logo} />
-          <input type="text" className={styles.token} placeholder="Token" ref={node => { this.input = node }} />
+          <input type="text" className={styles.token} placeholder="Gilab Token" ref={node => { this.input = node }} />
           <div className={styles.indicator}>{this.state.loading}</div>
           <button className={styles.button} onClick={this.authorize}>Authorize</button>
         </div>

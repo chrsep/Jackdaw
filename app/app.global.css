@@ -23,7 +23,7 @@ a:hover {
 }
 
 .CodeMirror {
-    height: 300px;
+    height: 100%;
     z-index: 2;
     -webkit-app-region: no-drag;
 }
@@ -33,7 +33,8 @@ a:hover {
 }
 
 #frame{
-    width: 100%;
+    margin-left: 1px;
+    width: calc(100% - 1px);
     -webkit-app-region: drag;
     display: flex;
     justify-content: flex-end;
