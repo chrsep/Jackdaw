@@ -17,5 +17,20 @@
     font-size: 2.5rem;
     padding: 1rem 1rem 0.7rem 1rem;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.categories{
+    height: 1rem;
+    max-width: calc(100% - 2rem);
+    border-radius: 0.2rem;
+    border:none;
+    font-size: 1rem;
+    padding: 1rem 1rem 0.7rem 1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-bottom: 1rem;
+}
+
+.editor{
+    display: none;
 }
