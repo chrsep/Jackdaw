@@ -10,12 +10,14 @@ export default class Cockpit extends Component {
     super(props)
     this.state = {
       postData: {},
-      loading: ''
+      loading: '',
+      isNewPost: true
     }
   }
   state: {
     postData: Object,
-    loading: string
+    loading: string,
+    isNewPost: boolean
   }
   onBackClickHandler = () => {
     hashHistory.push('/select')
@@ -31,11 +33,14 @@ export default class Cockpit extends Component {
     }).then(
       result => result.json()
     ).then(json => {
-      this.setState({ loading: 'Success', postData: json })
+      this.setState({ loading: 'Success', postData: json, isNewPost: false })
       return true
     }).catch(() => {
       this.setState({ loading: 'Failed' })
     })
+  }
+  onNewClickHandler = () => {
+    this.setState({ postData: {}, isNewPost: true })
   }
   props: {
     gitlab: Object,
@@ -71,9 +76,10 @@ export default class Cockpit extends Component {
             {posts.map((
               (item: string, index) =>
                 postItem(item, index)
-              ))}
+            ))}
+            <button className={styles.new} onClick={this.onNewClickHandler}>New Post</button>
           </div>
-          <Editor postData={this.state.postData} />
+          <Editor postData={this.state.postData} isNewPost={this.state.isNewPost} />
         </div>
       </div>
     )

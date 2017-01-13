@@ -23,6 +23,7 @@ a:hover {
 }
 
 .CodeMirror {
+    min-height: 1rem;
     height: 100%;
     z-index: 2;
     -webkit-app-region: no-drag;
