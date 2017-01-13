@@ -6,10 +6,8 @@ import createLogger from 'redux-logger'
 import {persistStore, autoRehydrate} from 'redux-persist'
 import rootReducer from '../reducers'
 
-import * as counterActions from '../actions/counter'
 
 const actionCreators = {
-  ...counterActions,
   push,
 }
 
