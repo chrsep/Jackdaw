@@ -33,8 +33,7 @@
     border-right: solid rgba(0, 0, 0, 0.16) thin;
     height: calc(100% - 8rem);
     width: 18rem;
-    margin-top: 7rem;
-    padding-top: 2.5rem;
+    margin-top: 8rem;
 }
 
 .post{
@@ -51,17 +50,21 @@
     text-align: left;
 }
 
-.projectSelected{
-    width: calc(100% - 3rem);
+.post:hover{
+    background-color: #D84315;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.postSelected{
+    width: calc(100%);
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
     cursor: pointer;
     -webkit-user-select: none;
     transition: background-color 0.1s;
-    box-shadow: none;
-}
-
-.post:hover{
+    border: none;
+    color: white;
+    text-align: left;
     background-color: #D84315;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
@@ -70,7 +73,7 @@
     height: 2.5rem;
     width: calc(100% - 4rem);
     border-radius: 0.2rem;
-    margin: 2rem;
+    margin: 1rem 2rem;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     background-color: #D84315;
     cursor: pointer;
@@ -78,4 +81,10 @@
     border: none;
     color: white;
     font-size: 1rem;
+}
+
+.loading{
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
 }

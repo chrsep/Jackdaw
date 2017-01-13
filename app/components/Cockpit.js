@@ -11,19 +11,22 @@ export default class Cockpit extends Component {
     this.state = {
       postData: {},
       loading: '',
-      isNewPost: true
+      isNewPost: true,
+      selectedIndex: -1
     }
   }
   state: {
     postData: Object,
     loading: string,
-    isNewPost: boolean
+    isNewPost: boolean,
+    selectedIndex: number
   }
   onBackClickHandler = () => {
     hashHistory.push('/select')
   }
   onPostClickHandler = (index: number) => {
     const { gitlab, posts, token } = this.props
+    this.setState({ loading: 'Loading', selectedIndex: index })
     const headers = new Headers({
       'PRIVATE-TOKEN': token
     })
@@ -36,11 +39,11 @@ export default class Cockpit extends Component {
       this.setState({ loading: 'Success', postData: json, isNewPost: false })
       return true
     }).catch(() => {
-      this.setState({ loading: 'Failed' })
+      this.setState({ loading: 'Failed', selectedIndex: -1, postData: {}, isNewPost: true })
     })
   }
   onNewClickHandler = () => {
-    this.setState({ postData: {}, isNewPost: true })
+    this.setState({ postData: {}, isNewPost: true, selectedIndex: -1 })
   }
   props: {
     gitlab: Object,
@@ -51,7 +54,11 @@ export default class Cockpit extends Component {
     const { gitlab, posts } = this.props
     const postHelper = new PostHelper()
     const postItem = (item, index) => (
-      <button key={index} className={styles.post} onClick={() => this.onPostClickHandler(index)}>
+      <button
+        key={index}
+        className={index === this.state.selectedIndex ? styles.postSelected : styles.post}
+        onClick={() => this.onPostClickHandler(index)}
+      >
         {postHelper.extractName(item)}
       </button>
     )
@@ -78,8 +85,9 @@ export default class Cockpit extends Component {
                 postItem(item, index)
             ))}
             <button className={styles.new} onClick={this.onNewClickHandler}>New Post</button>
+            <div className={styles.loading}>{this.state.loading}</div>
           </div>
-          <Editor postData={this.state.postData} isNewPost={this.state.isNewPost} />
+          <Editor postData={this.state.postData} isNewPost={this.state.isNewPost} token={this.props.token} gitlab={this.props.gitlab}/>
         </div>
       </div>
     )
