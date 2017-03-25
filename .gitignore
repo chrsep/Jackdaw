@@ -45,3 +45,13 @@ main.js.map
 
 .idea
 /yarn.lock
+!/app/yarn.lock
+/app/yarn.lock
+.#.eslintrc
+app/components/.#ProjectSelection.js
+app/containers/.#App.js
+app/reducers/.#index.js
+app/store/.#configureStore.development.js
+app/store/.#configureStore.js
+app/store/.#configureStore.production.js
+app/yarn.lock

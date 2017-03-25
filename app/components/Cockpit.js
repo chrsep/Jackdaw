@@ -87,7 +87,12 @@ export default class Cockpit extends Component {
             <button className={styles.new} onClick={this.onNewClickHandler}>New Post</button>
             <div className={styles.loading}>{this.state.loading}</div>
           </div>
-          <Editor postData={this.state.postData} isNewPost={this.state.isNewPost} token={this.props.token} gitlab={this.props.gitlab}/>
+          <Editor
+            postData={this.state.postData}
+            isNewPost={this.state.isNewPost}
+            token={this.props.token}
+            gitlab={this.props.gitlab}
+          />
         </div>
       </div>
     )

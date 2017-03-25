@@ -10,6 +10,6 @@ const rootReducer = combineReducers({
   token,
   posts,
   routing
-});
+})
 
 export default rootReducer

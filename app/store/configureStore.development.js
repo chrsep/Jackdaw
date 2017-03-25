@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { hashHistory } from 'react-router'
 import { routerMiddleware, push } from 'react-router-redux'
 import createLogger from 'redux-logger'
-import {persistStore, autoRehydrate} from 'redux-persist'
+import { persistStore, autoRehydrate } from 'redux-persist'
 import rootReducer from '../reducers'
 
 
