@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react'
 import SimpleMDE from 'simplemde'
+import frontMatterExtractor from 'front-matter'
 import styles from './Editor.css'
 import PostHelper from '../utils/PostHelper'
-import frontMatterExtractor from 'front-matter'
 
 export default class Editor extends Component {
   constructor(props: Object) {

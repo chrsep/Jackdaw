@@ -13,9 +13,7 @@ export default class ProjectSelection extends Component {
     loading: string
   }
   props: {
-    gitlab: {
-      projects: {name: string, id: number}[]
-    },
+    gitlab: Object,
     chooseProject: (number) => void,
     addPost: (string) => void,
     token: string
