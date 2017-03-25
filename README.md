@@ -16,3 +16,7 @@ With this setup, making a new article will still be easy but *only if you are fa
 - Jekyll Front Matter
 - File naming
 - ...
+
+## How to run
+1. Install dependencies with `yarn` or `npm install`
+2. Run app in development mode using `yarn dev` or `npm run dev`
