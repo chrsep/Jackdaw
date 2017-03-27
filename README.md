@@ -1,6 +1,6 @@
 # Jackdaw (WIP)
 [![Build status](https://ci.appveyor.com/api/projects/status/27fd3mcgdapjjwhv?svg=true)](https://ci.appveyor.com/project/chrsep/jackdaw)
-![GitHub Logo](https://travis-ci.org/chrsep/Jackdaw.svg?branch=master)
+[![Build Status](https://travis-ci.org/chrsep/Jackdaw.svg?branch=master)](https://travis-ci.org/chrsep/Jackdaw)
 
 Simple electron app for handling blog
 
