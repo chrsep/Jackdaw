@@ -1,4 +1,7 @@
 # Jackdaw (WIP)
+[![Build status](https://ci.appveyor.com/api/projects/status/27fd3mcgdapjjwhv?svg=true)](https://ci.appveyor.com/project/chrsep/jackdaw)
+![GitHub Logo](https://travis-ci.org/chrsep/Jackdaw.svg?branch=master)
+
 Simple electron app for handling blog
 
 I am trying to build a blog that requires no server, powered by Jekyll. The idea is to host the jekyll code on Gitlab with a Gitlab CI attached to it, with the final blog hosted on Google Cloud Storage. This way, it will be possible to host many blogs basically for free.
